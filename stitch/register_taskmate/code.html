@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Daftar - TaskMate</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-container": "#edeef2",
+                    "inverse-primary": "#b7c4ff",
+                    "on-secondary-fixed-variant": "#1a4293",
+                    "on-tertiary": "#ffffff",
+                    "primary": "#233a87",
+                    "surface": "#FFFFFF",
+                    "on-primary-container": "#c0cbff",
+                    "warning": "#F59E0B",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary": "#2e3f66",
+                    "danger": "#EF4444",
+                    "tertiary-fixed-dim": "#b5c6f5",
+                    "surface-variant": "#e1e2e6",
+                    "primary-fixed": "#dce1ff",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-container-highest": "#e1e2e6",
+                    "surface-bright": "#f8f9fd",
+                    "primary-container": "#3d52a0",
+                    "on-secondary-container": "#0e3a8b",
+                    "tertiary-fixed": "#d9e2ff",
+                    "error-container": "#ffdad6",
+                    "secondary-container": "#88a9ff",
+                    "text-secondary": "#6B7280",
+                    "on-secondary": "#ffffff",
+                    "tertiary-container": "#45567f",
+                    "text-primary": "#1E2235",
+                    "secondary": "#385bac",
+                    "surface-container-low": "#f2f3f7",
+                    "secondary-fixed-dim": "#b2c5ff",
+                    "inverse-surface": "#2e3134",
+                    "on-surface": "#191c1f",
+                    "success": "#22C55E",
+                    "outline": "#757682",
+                    "background": "#f8f9fd",
+                    "surface-dim": "#d9dade",
+                    "on-background": "#191c1f",
+                    "on-tertiary-fixed": "#051a40",
+                    "inverse-on-surface": "#eff1f5",
+                    "primary-fixed-dim": "#b7c4ff",
+                    "on-error": "#ffffff",
+                    "on-primary-fixed-variant": "#2b418e",
+                    "surface-container-high": "#e7e8ec",
+                    "on-tertiary-fixed-variant": "#35466e",
+                    "border": "#E5E7EB",
+                    "on-primary": "#ffffff",
+                    "on-surface-variant": "#444651",
+                    "on-primary-fixed": "#001552",
+                    "surface-tint": "#4459a8",
+                    "on-secondary-fixed": "#001847",
+                    "on-tertiary-container": "#bbccfc",
+                    "outline-variant": "#c5c5d3",
+                    "secondary-fixed": "#dae2ff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "8px",
+                    "sm": "16px",
+                    "margin-mobile": "16px",
+                    "gutter": "20px",
+                    "xl": "48px",
+                    "md": "24px",
+                    "lg": "32px",
+                    "margin-desktop": "32px",
+                    "base": "4px"
+            },
+            "fontFamily": {
+                    "body-md": [
+                            "Inter"
+                    ],
+                    "headline-lg-mobile": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-sm": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "1.5",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg-mobile": [
+                            "26px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.05em",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-sm": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.4",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "1.3",
+                                    "fontWeight": "600"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-text-primary font-body-md antialiased h-screen overflow-hidden selection:bg-secondary-container selection:text-on-secondary-container">
+<main class="flex h-full w-full">
+<!-- Left Branding Panel (Hidden on Mobile) -->
+<div class="hidden lg:flex w-1/2 bg-primary relative flex-col justify-between overflow-hidden">
+<!-- Decorative Elements -->
+<div class="absolute inset-0 bg-[linear-gradient(135deg,rgba(61,82,160,0.8)_0%,rgba(35,58,135,0.9)_100%)] z-10"></div>
+<img alt="Students studying" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-40 z-0" data-alt="A cinematic, high-resolution shot of students collaborating in a modern, brightly lit university library. The scene features clean desks, sleek laptops, and an atmosphere of focused, productive energy. The lighting is soft and natural, casting gentle shadows. The overarching visual style matches a clean, corporate academic aesthetic with subtle hints of deep indigo and crisp white tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsp5ePbuf1QIGCLCCjRnurKgYoM6evIT5TRgnZMyNfASjYWU0TSwlVJkG8nlV6b8Cclq4zeth53ktGSRGviPpILcokh0tQzzivBqJSBBcQWQ5b8Ua3OqJUamuKDW7FLkZRgGjTzRuzlWUX9SxlEr01B5QNFICjVI7fM3inWxlvXrXhSzqDahsPZVAinFLL2FIUsAVqINitU9v-jPF587Lb3EwbQb1YaWMPJDUtU3C4sLgDcW3gqNCSzMf9hQKKxkHY8QkpzyMfq_0"/>
+<div class="relative z-20 p-12 h-full flex flex-col justify-center max-w-lg mx-auto">
+<div class="mb-12">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-surface rounded-lg flex items-center justify-center shadow-sm">
+<span class="material-symbols-outlined text-primary text-2xl font-bold" style="font-variation-settings: 'FILL' 1;">
+                                task_alt
+                            </span>
+</div>
+<h1 class="font-headline-lg text-white tracking-tight">TaskMate</h1>
+</div>
+</div>
+<div>
+<h2 class="font-headline-lg text-white mb-6 leading-tight">Organize Your Academic Life with Ease.</h2>
+<p class="font-body-lg text-primary-fixed-dim">
+                        Join thousands of students and educators who use TaskMate to stay on top of assignments, manage deadlines, and achieve academic excellence.
+                    </p>
+</div>
+</div>
+<div class="relative z-20 p-12 text-primary-fixed-dim font-label-md">
+                © 2024 TaskMate Inc.
+            </div>
+</div>
+<!-- Right Form Panel -->
+<div class="w-full lg:w-1/2 flex items-center justify-center p-sm md:p-md lg:p-lg bg-background overflow-y-auto">
+<div class="w-full max-w-[440px] bg-surface rounded-xl shadow-[0_4px_12px_rgba(0,0,0,0.05)] border border-surface-variant p-8 md:p-10">
+<!-- Mobile Logo (Visible only on small screens) -->
+<div class="flex lg:hidden items-center justify-center gap-2 mb-8">
+<div class="w-8 h-8 bg-primary rounded-md flex items-center justify-center">
+<span class="material-symbols-outlined text-white text-xl" style="font-variation-settings: 'FILL' 1;">
+                            task_alt
+                        </span>
+</div>
+<span class="font-headline-md text-primary tracking-tight">TaskMate</span>
+</div>
+<!-- Header -->
+<div class="mb-8 text-center lg:text-left">
+<h2 class="font-headline-md text-text-primary mb-2">Buat Akun Baru</h2>
+<p class="font-body-md text-text-secondary">Isi data di bawah untuk memulai</p>
+</div>
+<!-- Registration Form -->
+<form action="#" class="space-y-5" method="POST">
+<!-- Nama Lengkap Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-text-secondary uppercase" for="fullName">Nama Lengkap</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">person</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-text-primary placeholder:text-outline focus:ring-2 focus:ring-secondary focus:border-secondary transition-shadow outline-none" id="fullName" name="fullName" placeholder="John Doe" required="" type="text"/>
+</div>
+</div>
+<!-- Email Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-text-secondary uppercase" for="email">Email</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">mail</span>
+</div>
+<input class="block w-full pl-10 pr-4 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-text-primary placeholder:text-outline focus:ring-2 focus:ring-secondary focus:border-secondary transition-shadow outline-none" id="email" name="email" placeholder="mahasiswa@kampus.ac.id" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-text-secondary uppercase" for="password">Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">lock</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-text-primary placeholder:text-outline focus:ring-2 focus:ring-secondary focus:border-secondary transition-shadow outline-none" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-3 flex items-center text-outline hover:text-text-primary transition-colors focus:outline-none" type="button">
+<span class="material-symbols-outlined text-[20px]">visibility_off</span>
+</button>
+</div>
+</div>
+<!-- Confirm Password Field -->
+<div class="space-y-1.5">
+<label class="block font-label-md text-text-secondary uppercase" for="confirmPassword">Confirm Password</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-outline text-[20px]">check_circle</span>
+</div>
+<input class="block w-full pl-10 pr-10 py-2.5 bg-surface border border-outline-variant rounded-lg font-body-md text-text-primary placeholder:text-outline focus:ring-2 focus:ring-secondary focus:border-secondary transition-shadow outline-none" id="confirmPassword" name="confirmPassword" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Submit Button -->
+<div class="pt-2">
+<button class="w-full flex items-center justify-center py-3 px-4 bg-primary-container hover:bg-primary text-white font-label-md rounded-lg transition-colors duration-200 shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-container" type="submit">
+                            Daftar
+                        </button>
+</div>
+</form>
+<!-- Footer Link -->
+<div class="mt-8 text-center">
+<p class="font-body-md text-text-secondary">
+<a class="text-primary hover:text-secondary font-medium hover:underline transition-all" href="#">Sudah punya akun? Masuk</a>
+</p>
+</div>
+</div>
+</div>
+</main>
+</body></html>

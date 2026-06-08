@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMate - Tambah Tugas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container": "#edeef2",
+                        "inverse-primary": "#b7c4ff",
+                        "on-secondary-fixed-variant": "#1a4293",
+                        "on-tertiary": "#ffffff",
+                        "primary": "#233a87",
+                        "surface": "#FFFFFF",
+                        "on-primary-container": "#c0cbff",
+                        "warning": "#F59E0B",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#2e3f66",
+                        "danger": "#EF4444",
+                        "tertiary-fixed-dim": "#b5c6f5",
+                        "surface-variant": "#e1e2e6",
+                        "primary-fixed": "#dce1ff",
+                        "error": "#ba1a1a",
+                        "on-error-container": "#93000a",
+                        "surface-container-highest": "#e1e2e6",
+                        "surface-bright": "#f8f9fd",
+                        "primary-container": "#3d52a0",
+                        "on-secondary-container": "#0e3a8b",
+                        "tertiary-fixed": "#d9e2ff",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#88a9ff",
+                        "text-secondary": "#6B7280",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#45567f",
+                        "text-primary": "#1E2235",
+                        "secondary": "#385bac",
+                        "surface-container-low": "#f2f3f7",
+                        "secondary-fixed-dim": "#b2c5ff",
+                        "inverse-surface": "#2e3134",
+                        "on-surface": "#191c1f",
+                        "success": "#22C55E",
+                        "outline": "#757682",
+                        "background": "#f8f9fd",
+                        "surface-dim": "#d9dade",
+                        "on-background": "#191c1f",
+                        "on-tertiary-fixed": "#051a40",
+                        "inverse-on-surface": "#eff1f5",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#2b418e",
+                        "surface-container-high": "#e7e8ec",
+                        "on-tertiary-fixed-variant": "#35466e",
+                        "border": "#E5E7EB",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#444651",
+                        "on-primary-fixed": "#001552",
+                        "surface-tint": "#4459a8",
+                        "on-secondary-fixed": "#001847",
+                        "on-tertiary-container": "#bbccfc",
+                        "outline-variant": "#c5c5d3",
+                        "secondary-fixed": "#dae2ff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xs": "8px",
+                        "sm": "16px",
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xl": "48px",
+                        "md": "24px",
+                        "lg": "32px",
+                        "margin-desktop": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-sm": ["Inter"],
+                        "headline-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #F5F6FA; }
+        .ambient-shadow-level-1 { box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); }
+        .ambient-shadow-level-2:hover { box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08); transform: translateY(-2px); transition: all 0.2s ease-in-out; }
+    </style>
+</head>
+<body class="font-body-md text-body-md text-text-primary antialiased bg-background">
+<!-- SideNavBar -->
+<nav class="w-[240px] h-screen fixed left-0 top-0 bg-primary-container shadow-sm flex flex-col gap-sm p-sm z-50 transition-all duration-200 ease-in-out md:flex hidden">
+<div class="flex items-center gap-sm px-sm py-md mb-md">
+<img alt="User profile" class="w-10 h-10 rounded-full bg-white p-1" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR9CWGKgAF6nuG8qgmyHlll3qR0VN_iHdg4O31IJI1KlKs0vuZmbAiUtSo9ZKzmOz4oB5nHxNKST6yRjUocaxf-fN1xCa14REfBgrGVJJMQD8EKcHmNxZhpgB6DXU08Dstq5sosa3DKoh8sSuub_39UOYLW6fbMbYHdFB1gKveHDsI-EqraQSEe1p6CUV1_7ovscvoo79teLKA1hbWq1VhXZJNYpYLfywCRmiwv8wBoqMkes6eSZf59kzGhu727wy5IAyj85aSmYY"/>
+<div class="flex flex-col">
+<span class="font-headline-md text-headline-md font-bold text-white">TaskMate</span>
+<span class="font-label-md text-label-md text-on-primary-container/80">Student Portal</span>
+</div>
+</div>
+<div class="flex flex-col gap-xs flex-grow">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-primary-container/80 hover:text-white hover:bg-white/5 transition-colors duration-200 ease-in-out group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">dashboard</span>
+<span class="font-body-md text-body-md group-hover:font-medium">Dashboard</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-primary-container/80 hover:text-white hover:bg-white/5 transition-colors duration-200 ease-in-out group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">assignment</span>
+<span class="font-body-md text-body-md group-hover:font-medium">Tugas Saya</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm bg-white/10 rounded-lg text-white font-bold transition-colors duration-200 ease-in-out group" href="#">
+<div class="w-1 h-6 bg-white absolute left-0 rounded-r-full hidden md:block"></div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">add_circle</span>
+<span class="font-body-md text-body-md">Tambah Tugas</span>
+</a>
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-primary-container/80 hover:text-white hover:bg-white/5 transition-colors duration-200 ease-in-out group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">history</span>
+<span class="font-body-md text-body-md group-hover:font-medium">Riwayat</span>
+</a>
+<div class="mt-auto">
+<a class="flex items-center gap-sm px-md py-sm rounded-lg text-on-primary-container/80 hover:text-white hover:bg-white/5 transition-colors duration-200 ease-in-out group" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">settings</span>
+<span class="font-body-md text-body-md group-hover:font-medium">Pengaturan</span>
+</a>
+</div>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-[240px] h-16 bg-surface bg-surface-container-low shadow-sm flex items-center justify-between px-md w-full z-40 transition-all duration-200 ease-in-out">
+<div class="flex items-center gap-sm md:hidden">
+<button class="p-xs rounded-full hover:bg-surface-container transition-all text-text-secondary scale-95 transition-transform">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<span class="font-headline-md text-headline-md font-bold text-primary">TaskMate</span>
+</div>
+<div class="hidden md:flex items-center flex-1 max-w-md ml-lg">
+<!-- Optional Search -->
+</div>
+<div class="flex items-center gap-sm ml-auto">
+<button class="p-xs rounded-full hover:bg-surface-container transition-all text-text-secondary scale-95 transition-transform relative group">
+<span class="material-symbols-outlined">notifications</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-danger rounded-full border border-surface"></span>
+</button>
+<button class="p-xs rounded-full hover:bg-surface-container transition-all text-text-secondary scale-95 transition-transform group">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pt-[80px] md:pl-[240px] min-h-screen p-margin-mobile md:p-margin-desktop transition-all duration-300">
+<div class="max-w-[640px] mx-auto">
+<div class="mb-lg">
+<h1 class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-primary mb-xs">Tambah Tugas Baru</h1>
+<p class="font-body-md text-body-md text-text-secondary">Masukkan detail tugas untuk ditambahkan ke daftar Anda.</p>
+</div>
+<!-- Form Card -->
+<div class="bg-surface rounded-xl ambient-shadow-level-1 p-md md:p-lg relative overflow-hidden">
+<!-- Academic Accent Stripe -->
+<div class="absolute left-0 top-0 bottom-0 w-[4px] bg-primary"></div>
+<form class="flex flex-col gap-md">
+<!-- Judul Tugas -->
+<div class="flex flex-col gap-base">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="judul">Judul Tugas <span class="text-danger">*</span></label>
+<input class="w-full px-sm py-sm rounded-lg border border-border bg-surface text-text-primary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all placeholder:text-text-secondary/60" id="judul" placeholder="Contoh: Makalah Sejarah Indonesia" type="text"/>
+</div>
+<!-- Deskripsi -->
+<div class="flex flex-col gap-base">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="deskripsi">Deskripsi</label>
+<textarea class="w-full px-sm py-sm rounded-lg border border-border bg-surface text-text-primary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all resize-y placeholder:text-text-secondary/60" id="deskripsi" placeholder="Detail tambahan tentang tugas ini..." rows="4"></textarea>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<!-- Deadline -->
+<div class="flex flex-col gap-base">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="deadline">Tenggat Waktu <span class="text-danger">*</span></label>
+<div class="relative">
+<input class="w-full pl-sm pr-10 py-sm rounded-lg border border-border bg-surface text-text-primary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all cursor-pointer" id="deadline" type="date"/>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none">calendar_today</span>
+</div>
+</div>
+<!-- Status/Priority -->
+<div class="flex flex-col gap-base">
+<label class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider" for="prioritas">Prioritas</label>
+<div class="relative">
+<select class="w-full pl-sm pr-10 py-sm rounded-lg border border-border bg-surface text-text-primary font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all appearance-none cursor-pointer" id="prioritas">
+<option value="rendah">Biasa</option>
+<option selected="" value="menengah">Penting</option>
+<option value="tinggi">Sangat Penting (Mendesak)</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-text-secondary pointer-events-none">arrow_drop_down</span>
+</div>
+</div>
+</div>
+<div class="border-t border-border mt-sm pt-md flex justify-end gap-sm items-center">
+<button class="px-md py-sm rounded-lg border border-outline text-text-secondary font-body-md text-body-md font-medium hover:bg-surface-container-low transition-colors duration-200" type="button">
+                            Batal
+                        </button>
+<button class="px-md py-sm rounded-lg bg-primary text-white font-body-md text-body-md font-medium hover:bg-primary-container transition-colors duration-200 shadow-sm flex items-center gap-xs" type="submit">
+<span class="material-symbols-outlined text-[18px]">save</span>
+                            Simpan Tugas
+                        </button>
+</div>
+</form>
+</div>
+</div>
+</main>
+</body></html>

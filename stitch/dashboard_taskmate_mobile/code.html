@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMate Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001847",
+                        "surface": "#FFFFFF",
+                        "error": "#ba1a1a",
+                        "text-secondary": "#6B7280",
+                        "border": "#E5E7EB",
+                        "on-secondary-container": "#0e3a8b",
+                        "on-tertiary-fixed": "#051a40",
+                        "background": "#F5F6FA", /* Changed to match Ghost White requirement */
+                        "surface-variant": "#e1e2e6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#bbccfc",
+                        "surface-container-lowest": "#ffffff",
+                        "text-primary": "#1E2235",
+                        "surface-bright": "#f8f9fd",
+                        "on-tertiary-fixed-variant": "#35466e",
+                        "secondary": "#385bac",
+                        "outline-variant": "#c5c5d3",
+                        "surface-container-low": "#f2f3f7",
+                        "on-surface-variant": "#444651",
+                        "tertiary-fixed": "#d9e2ff",
+                        "on-primary-fixed": "#001552",
+                        "surface-dim": "#d9dade",
+                        "inverse-primary": "#b7c4ff",
+                        "danger": "#EF4444",
+                        "secondary-fixed": "#dae2ff",
+                        "surface-container-high": "#e7e8ec",
+                        "secondary-fixed-dim": "#b2c5ff",
+                        "on-surface": "#191c1f",
+                        "outline": "#757682",
+                        "on-primary-container": "#c0cbff",
+                        "primary-container": "#3d52a0",
+                        "on-secondary": "#ffffff",
+                        "primary": "#233a87",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#88a9ff",
+                        "surface-container": "#edeef2",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3134",
+                        "tertiary-fixed-dim": "#b5c6f5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#2e3f66",
+                        "warning": "#F59E0B",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "success": "#22C55E",
+                        "on-primary-fixed-variant": "#2b418e",
+                        "tertiary-container": "#45567f",
+                        "on-background": "#191c1f",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-secondary-fixed-variant": "#1a4293",
+                        "primary-fixed": "#dce1ff",
+                        "surface-tint": "#4459a8",
+                        "inverse-on-surface": "#eff1f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xl": "48px",
+                        "sm": "16px",
+                        "lg": "32px",
+                        "xs": "8px",
+                        "md": "24px",
+                        "margin-desktop": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        
+        /* Level 1 Shadow */
+        .shadow-level-1 {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Level 2 Shadow (Hover) */
+        .hover-shadow-level-2:hover {
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            transform: translateY(-2px);
+        }
+        
+        /* Hide scrollbar for horizontal scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-text-primary font-body-md min-h-screen pb-24 md:pb-0">
+<!-- Mobile Header (Visible only on md:hidden) -->
+<header class="md:hidden flex items-center justify-between p-margin-mobile bg-surface shadow-level-1 sticky top-0 z-40">
+<div>
+<h1 class="font-headline-sm text-headline-sm text-primary font-bold">Halo, Budi 👋</h1>
+<p class="font-body-md text-body-md text-text-secondary mt-base">Siap untuk belajar hari ini?</p>
+</div>
+<div class="flex items-center gap-sm">
+<button class="text-text-secondary hover:text-primary transition-colors relative">
+<span class="material-symbols-outlined text-[24px]">notifications</span>
+<span class="absolute top-0 right-0 w-2 h-2 bg-danger rounded-full"></span>
+</button>
+<div class="w-10 h-10 rounded-full bg-primary-container flex items-center justify-center overflow-hidden border-2 border-surface">
+<img alt="User Profile" class="w-full h-full object-cover" data-alt="A professional headshot of a young male student with short dark hair, wearing a casual grey sweater against a clean, light blue background. The lighting is soft and flattering, creating a modern, friendly academic vibe. The style is highly realistic photography." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkrde5uex98cDeUNsonOeS2kc7TJLodCVODboqBte18m4HnhipBadl6NYYYQ8whMECqPW-BMtCrRVT33tP902W2M7RDR6aBWv8OiF7T7iDXiuDKRuWioBcwglmdvKrwEZfhP1KQg-1J-X3sKkSXVNPEubO1-ctFgd65zq14NuvojJHPVd2-fyfrlKHzzBLop5jw6GMGLTag_GI9v1KRM6COgZ_Tm1xPEPoml6hhpTgn_ln6rDa0UYdgXhXWt9uFuFClsjFX9ihnQM"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="p-margin-mobile md:p-margin-desktop max-w-7xl mx-auto space-y-lg md:space-y-xl">
+<!-- Stats Grid (Mobile: 2x2, Desktop: 4 cols) -->
+<section>
+<h2 class="font-headline-sm text-headline-sm text-text-primary mb-sm md:hidden">Ringkasan</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-sm md:gap-gutter">
+<!-- Stat Card 1 -->
+<div class="bg-surface rounded-lg p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-primary"></div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-text-secondary mb-base">Total Tugas</p>
+<p class="font-headline-md text-headline-md text-text-primary">24</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">assignment</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-surface rounded-lg p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-success"></div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-text-secondary mb-base">Selesai</p>
+<p class="font-headline-md text-headline-md text-text-primary">18</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-success group-hover:bg-success/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-surface rounded-lg p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-warning"></div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-text-secondary mb-base">Deadline</p>
+<p class="font-headline-md text-headline-md text-text-primary">4</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-warning group-hover:bg-warning/20 transition-colors">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+</div>
+</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-surface rounded-lg p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden group">
+<div class="absolute top-0 left-0 w-1 h-full bg-danger"></div>
+<div class="flex items-start justify-between">
+<div>
+<p class="font-label-md text-label-md text-text-secondary mb-base">Terlambat</p>
+<p class="font-headline-md text-headline-md text-text-primary">2</p>
+</div>
+<div class="w-8 h-8 rounded-full bg-surface-container-low flex items-center justify-center text-danger group-hover:bg-error-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">error</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Tasks Section -->
+<section>
+<div class="flex items-center justify-between mb-sm md:mb-md">
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Tugas Mendekati Deadline</h2>
+<a class="font-body-md text-body-md text-primary font-medium hover:underline" href="#">Lihat Semua</a>
+</div>
+<div class="space-y-sm">
+<!-- Task Card 1 (Warning) -->
+<div class="bg-surface rounded-xl p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-sm">
+<div class="absolute top-0 left-0 w-1 h-full bg-warning"></div>
+<div class="flex items-start gap-sm">
+<div class="mt-1">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-secondary transition-colors cursor-pointer" type="checkbox"/>
+</div>
+<div>
+<div class="flex items-center gap-xs mb-1">
+<span class="px-2 py-1 bg-warning/10 text-warning font-label-md text-label-md rounded-full">Besok</span>
+<span class="px-2 py-1 bg-surface-container-low text-text-secondary font-label-md text-label-md rounded-full">Matematika Diskrit</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Tugas Besar 2: Graf &amp; Tree</h3>
+<p class="font-body-md text-body-md text-text-secondary mt-base line-clamp-1">Kumpulkan dalam format PDF beserta source code.</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-sm md:w-auto w-full pl-8 md:pl-0">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="A small circular avatar of a smiling young woman with glasses." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8YtYGA8gHAOX5BeYOVC2anKSusNSh8m_NCqVB9Zz2HwfaxBn3Zo78hrItRG2lQuS8WTlW7fZIHqghI-JdVZVWP2inPX1--GKxfQzs5RwQ35dsFnPKT5HGI9REPvyqeU9PfcRjMHcOFA1mQqdZcf8m7rIkzHZec_rm0GWJR0NoT7YNkSFy5v_PLIc5lIEIJaxWGtgW0j68lDdToYAnfsEpqI-hE8VCFBsRhZ-UwlvB5wa0Qx42S60w_37C6_HpKmDrtcORk1Gy_To"/>
+<div class="w-8 h-8 rounded-full border-2 border-surface bg-surface-container-low flex items-center justify-center font-label-md text-label-md text-text-secondary">+2</div>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-low flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Task Card 2 (Danger) -->
+<div class="bg-surface rounded-xl p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-sm">
+<div class="absolute top-0 left-0 w-1 h-full bg-danger"></div>
+<div class="flex items-start gap-sm">
+<div class="mt-1">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-secondary transition-colors cursor-pointer" type="checkbox"/>
+</div>
+<div>
+<div class="flex items-center gap-xs mb-1">
+<span class="px-2 py-1 bg-error-container text-on-error-container font-label-md text-label-md rounded-full">Hari Ini</span>
+<span class="px-2 py-1 bg-surface-container-low text-text-secondary font-label-md text-label-md rounded-full">Rekayasa Perangkat Lunak</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary">Presentasi SRS Document</h3>
+<p class="font-body-md text-body-md text-text-secondary mt-base line-clamp-1">Persiapkan slide presentasi maksimal 15 halaman.</p>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-sm md:w-auto w-full pl-8 md:pl-0">
+<div class="flex -space-x-2">
+<img alt="Avatar" class="w-8 h-8 rounded-full border-2 border-surface" data-alt="A small circular avatar of a young man with a slight smile." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAp9qLa6BUviOnfbHdXW2PbXq2prwA6N-r3xVG18lMf-lp0wEkOMcrr9UlePz-2btKW3c4d_rowiQ9oPyNzyGXsC-TLYloAuJYtkGWu6oAaKVmmctkQHjHrG8QTj_q299SYSXHlHcEv4f0pPqGs_HqWl8P-gVaHqshv4_spfER-QtvrZOxJKGp-umDfRlKx4m2pH3-Pf9kXcegtG8Yge-hmlzAFbI2xSV7nau7iZQka3_5-8peK-0PpOt_E9Pwndg827Vl6_JBRnx4"/>
+</div>
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-low flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Task Card 3 (Normal/Success) -->
+<div class="bg-surface rounded-xl p-sm shadow-level-1 hover-shadow-level-2 transition-all duration-300 relative overflow-hidden flex flex-col md:flex-row md:items-center justify-between gap-sm">
+<div class="absolute top-0 left-0 w-1 h-full bg-success"></div>
+<div class="flex items-start gap-sm">
+<div class="mt-1">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-secondary transition-colors cursor-pointer" type="checkbox"/>
+</div>
+<div>
+<div class="flex items-center gap-xs mb-1">
+<span class="px-2 py-1 bg-success/10 text-success font-label-md text-label-md rounded-full">Selesai</span>
+<span class="px-2 py-1 bg-surface-container-low text-text-secondary font-label-md text-label-md rounded-full">Basis Data</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-text-primary line-through text-text-secondary">Normalisasi Database Minimarket</h3>
+</div>
+</div>
+<div class="flex items-center justify-between md:justify-end gap-sm md:w-auto w-full pl-8 md:pl-0">
+<button class="w-8 h-8 rounded-full hover:bg-surface-container-low flex items-center justify-center text-text-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Empty Space for scrolling past bottom nav on mobile -->
+<div class="h-8 md:hidden"></div>
+</main>
+<!-- Mobile Bottom Navigation (Visible only on md:hidden) -->
+<!-- Applying Semantic Shell logic: Rendered because this is a top-level destination (Dashboard) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-surface shadow-[0_-4px_12px_rgba(0,0,0,0.05)] z-50">
+<!-- CRITICAL: No top border as per rules -->
+<div class="flex justify-around items-center px-sm py-2">
+<!-- Dashboard (Active) -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] p-2 rounded-lg transition-colors bg-primary-container text-on-primary-container group" href="#">
+<span class="material-symbols-outlined" data-weight="fill">dashboard</span>
+<span class="font-label-md text-label-md font-bold">Dashboard</span>
+</a>
+<!-- Tugas Saya -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] p-2 rounded-lg transition-colors text-text-secondary hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">assignment</span>
+<span class="font-label-md text-label-md">Tugas Saya</span>
+</a>
+<!-- Tambah Tugas (FAB-like integration in nav) -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] p-2 rounded-lg transition-colors text-text-secondary hover:text-primary group relative -top-4" href="#">
+<div class="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center shadow-level-1 group-hover:bg-primary-container transition-colors">
+<span class="material-symbols-outlined text-[28px]">add_circle</span>
+</div>
+<!-- Label hidden for FAB style to keep it clean, but could add if strict -->
+</a>
+<!-- Riwayat -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] p-2 rounded-lg transition-colors text-text-secondary hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">history</span>
+<span class="font-label-md text-label-md">Riwayat</span>
+</a>
+<!-- Pengaturan -->
+<a class="flex flex-col items-center gap-1 min-w-[64px] p-2 rounded-lg transition-colors text-text-secondary hover:text-primary group" href="#">
+<span class="material-symbols-outlined group-hover:scale-110 transition-transform">settings</span>
+<span class="font-label-md text-label-md">Pengaturan</span>
+</a>
+</div>
+</nav>
+<!-- Desktop Sidebar Placeholder (Hidden on Mobile) -->
+<!-- Just to show adherence to the fluid/fixed grid philosophy if scaled up -->
+<aside class="hidden md:flex w-[240px] h-screen fixed left-0 top-0 bg-primary-container flex-col gap-sm p-sm shadow-level-1">
+<div class="p-4 mb-4">
+<h1 class="font-headline-md text-headline-md font-bold text-white">TaskMate</h1>
+<p class="font-label-md text-label-md text-on-primary-container/80 mt-1">Student Portal</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 bg-white/10 rounded-lg text-white font-bold transition-colors" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-on-primary-container/80 hover:text-white hover:bg-white/5 rounded-lg transition-colors duration-200 ease-in-out" href="#">
+<span class="material-symbols-outlined">assignment</span>
+<span>Tugas Saya</span>
+</a>
+<!-- Other tabs... -->
+</nav>
+</aside>
+</body></html>

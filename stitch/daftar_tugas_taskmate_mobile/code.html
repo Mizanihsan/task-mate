@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>TaskMate - Tugas Saya</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-error-container": "#93000a",
+                        "on-secondary-fixed": "#001847",
+                        "surface": "#FFFFFF",
+                        "error": "#ba1a1a",
+                        "text-secondary": "#6B7280",
+                        "border": "#E5E7EB",
+                        "on-secondary-container": "#0e3a8b",
+                        "on-tertiary-fixed": "#051a40",
+                        "background": "#f8f9fd",
+                        "surface-variant": "#e1e2e6",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-container": "#bbccfc",
+                        "surface-container-lowest": "#ffffff",
+                        "text-primary": "#1E2235",
+                        "surface-bright": "#f8f9fd",
+                        "on-tertiary-fixed-variant": "#35466e",
+                        "secondary": "#385bac",
+                        "outline-variant": "#c5c5d3",
+                        "surface-container-low": "#f2f3f7",
+                        "on-surface-variant": "#444651",
+                        "tertiary-fixed": "#d9e2ff",
+                        "on-primary-fixed": "#001552",
+                        "surface-dim": "#d9dade",
+                        "inverse-primary": "#b7c4ff",
+                        "danger": "#EF4444",
+                        "secondary-fixed": "#dae2ff",
+                        "surface-container-high": "#e7e8ec",
+                        "secondary-fixed-dim": "#b2c5ff",
+                        "on-surface": "#191c1f",
+                        "outline": "#757682",
+                        "on-primary-container": "#c0cbff",
+                        "primary-container": "#3d52a0",
+                        "on-secondary": "#ffffff",
+                        "primary": "#233a87",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#88a9ff",
+                        "surface-container": "#edeef2",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2e3134",
+                        "tertiary-fixed-dim": "#b5c6f5",
+                        "on-tertiary": "#ffffff",
+                        "tertiary": "#2e3f66",
+                        "warning": "#F59E0B",
+                        "primary-fixed-dim": "#b7c4ff",
+                        "success": "#22C55E",
+                        "on-primary-fixed-variant": "#2b418e",
+                        "tertiary-container": "#45567f",
+                        "on-background": "#191c1f",
+                        "surface-container-highest": "#e1e2e6",
+                        "on-secondary-fixed-variant": "#1a4293",
+                        "primary-fixed": "#dce1ff",
+                        "surface-tint": "#4459a8",
+                        "inverse-on-surface": "#eff1f5"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xl": "48px",
+                        "sm": "16px",
+                        "lg": "32px",
+                        "xs": "8px",
+                        "md": "24px",
+                        "margin-desktop": "32px",
+                        "base": "4px"
+                    },
+                    "fontFamily": {
+                        "headline-sm": ["Inter"],
+                        "label-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "headline-lg-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-sm": ["20px", { "lineHeight": "1.4", "fontWeight": "500" }],
+                        "label-md": ["12px", { "lineHeight": "1", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "1.2", "fontWeight": "600" }],
+                        "headline-lg": ["32px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "body-lg": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "body-md": ["14px", { "lineHeight": "1.5", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen pb-24">
+<!-- Top App Bar -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-md shadow-[0_4px_12px_rgba(0,0,0,0.05)] md:hidden">
+<div class="flex items-center justify-between px-margin-mobile h-16 w-full">
+<h1 class="font-headline-md text-headline-md font-bold text-primary">Tugas Saya</h1>
+<div class="flex items-center gap-xs">
+<button class="p-xs text-text-secondary hover:bg-surface-container transition-all rounded-full">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="p-xs text-text-secondary hover:bg-surface-container transition-all rounded-full">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_circle</span>
+</button>
+</div>
+</div>
+<!-- Search & Filters -->
+<div class="px-margin-mobile pb-sm bg-surface">
+<!-- Search Bar -->
+<div class="relative w-full mb-sm">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-text-secondary">search</span>
+<input class="w-full bg-surface-container-low border border-border rounded-lg py-xs pl-xl pr-sm text-body-md font-body-md text-text-primary focus:outline-none focus:ring-2 focus:ring-secondary focus:border-transparent transition-all" placeholder="Cari tugas..." type="text"/>
+</div>
+<!-- Scrollable Filter Pills -->
+<div class="flex overflow-x-auto hide-scrollbar gap-xs pb-1 -mx-margin-mobile px-margin-mobile">
+<button class="whitespace-nowrap px-sm py-xs rounded-full bg-primary text-on-primary font-label-md text-label-md transition-colors">Semua</button>
+<button class="whitespace-nowrap px-sm py-xs rounded-full bg-surface-container text-text-primary hover:bg-surface-container-high font-label-md text-label-md transition-colors">Belum Selesai</button>
+<button class="whitespace-nowrap px-sm py-xs rounded-full bg-surface-container text-text-primary hover:bg-surface-container-high font-label-md text-label-md transition-colors">Selesai</button>
+<button class="whitespace-nowrap px-sm py-xs rounded-full bg-surface-container text-text-primary hover:bg-surface-container-high font-label-md text-label-md transition-colors">Prioritas Tinggi</button>
+</div>
+</div>
+</header>
+<!-- Main Content Area -->
+<main class="pt-[140px] px-margin-mobile md:hidden">
+<!-- Section Header -->
+<div class="mb-md">
+<h2 class="font-headline-sm text-headline-sm text-text-primary">Mendatang</h2>
+<p class="font-body-md text-body-md text-text-secondary">Tugas untuk minggu ini</p>
+</div>
+<!-- Task List -->
+<div class="flex flex-col gap-sm">
+<!-- Task Card: High Priority -->
+<div class="bg-surface rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-200 relative overflow-hidden group cursor-pointer flex">
+<div class="w-[4px] bg-danger shrink-0"></div>
+<div class="p-sm flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-[10px] uppercase tracking-wider">
+                            Mendesak
+                        </span>
+<span class="font-label-md text-label-md text-text-secondary">Besok, 23:59</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-tight font-semibold text-text-primary group-hover:text-primary transition-colors">Makalah Sejarah Modern</h3>
+<p class="font-body-md text-body-md text-text-secondary line-clamp-1 mt-1">Bab 1-3 draft pertama</p>
+</div>
+<div class="flex items-center gap-xs mt-1 text-text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">menu_book</span> Sejarah 101
+                    </div>
+</div>
+</div>
+<!-- Task Card: Medium Priority -->
+<div class="bg-surface rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-200 relative overflow-hidden group cursor-pointer flex">
+<div class="w-[4px] bg-warning shrink-0"></div>
+<div class="p-sm flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container text-text-primary font-label-md text-[10px] uppercase tracking-wider">
+                            Berlangsung
+                        </span>
+<span class="font-label-md text-label-md text-text-secondary">Kamis, 14:00</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-tight font-semibold text-text-primary group-hover:text-primary transition-colors">Presentasi Biologi</h3>
+<p class="font-body-md text-body-md text-text-secondary line-clamp-1 mt-1">Siapkan slide tentang sel tumbuhan</p>
+</div>
+<div class="flex items-center gap-xs mt-1 text-text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">science</span> Biologi Sel
+                    </div>
+</div>
+</div>
+<!-- Task Card: Low Priority / Future -->
+<div class="bg-surface rounded-[12px] shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:-translate-y-[2px] transition-all duration-200 relative overflow-hidden group cursor-pointer flex opacity-90">
+<div class="w-[4px] bg-success shrink-0"></div>
+<div class="p-sm flex-1 flex flex-col gap-xs">
+<div class="flex justify-between items-start">
+<span class="inline-flex items-center gap-1 px-2 py-1 rounded-full bg-surface-container text-text-primary font-label-md text-[10px] uppercase tracking-wider">
+                            Terjadwal
+                        </span>
+<span class="font-label-md text-label-md text-text-secondary">Senin Depan</span>
+</div>
+<div>
+<h3 class="font-headline-sm text-[16px] leading-tight font-semibold text-text-primary group-hover:text-primary transition-colors">Latihan Matematika Bab 4</h3>
+<p class="font-body-md text-body-md text-text-secondary line-clamp-1 mt-1">Soal nomor 1-20 halaman 45</p>
+</div>
+<div class="flex items-center gap-xs mt-1 text-text-secondary font-label-md text-label-md">
+<span class="material-symbols-outlined text-[16px]">calculate</span> Kalkulus Dasar
+                    </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button (FAB) -->
+<button class="fixed right-margin-mobile bottom-[88px] z-40 bg-primary text-on-primary w-14 h-14 rounded-xl flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.3)] hover:-translate-y-1 transition-all duration-200 md:hidden">
+<span class="material-symbols-outlined text-[28px]">add</span>
+</button>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-md shadow-[0_-4px_12px_rgba(0,0,0,0.05)] md:hidden pb-safe">
+<div class="flex justify-around items-center h-[72px] px-sm">
+<a class="flex flex-col items-center gap-1 p-2 text-text-secondary transition-colors w-16" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-label-md text-[10px]">Dashboard</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-primary font-bold transition-colors w-16 relative" href="#">
+<!-- Active Indicator -->
+<div class="absolute -top-1 left-1/2 -translate-x-1/2 w-8 h-1 bg-primary rounded-b-full"></div>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span class="font-label-md text-[10px]">Tugas Saya</span>
+</a>
+<!-- Spacer for FAB alignment if centered, but here we placed FAB on right -->
+<a class="flex flex-col items-center gap-1 p-2 text-text-secondary transition-colors w-16" href="#">
+<span class="material-symbols-outlined">history</span>
+<span class="font-label-md text-[10px]">Riwayat</span>
+</a>
+<a class="flex flex-col items-center gap-1 p-2 text-text-secondary transition-colors w-16" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-label-md text-[10px]">Pengaturan</span>
+</a>
+</div>
+</nav>
+<!-- SafeArea utility for iOS -->
+<style>
+        .pb-safe { padding-bottom: env(safe-area-inset-bottom); }
+    </style>
+</body></html>
